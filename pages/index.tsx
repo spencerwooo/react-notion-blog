@@ -31,7 +31,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
 }
 
 export const getStaticProps = async () => {
-  const posts = await getAllPosts()
+  const posts = (await getAllPosts()).filter(p => p.published)
   return {
     props: {
       posts
