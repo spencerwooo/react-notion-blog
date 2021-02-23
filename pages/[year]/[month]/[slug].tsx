@@ -6,7 +6,7 @@ import { BlockMapType, NotionRenderer } from 'react-notion'
 import 'react-notion/src/styles.css'
 import { getAllPosts, Post } from '../..'
 import Footer from '../../../components/Footer'
-import { formatSlug } from '../../../utls/slugFormat'
+import { formatSlug } from '../../../utils/slugFormat'
 
 export const getStaticProps = async ({ params: { slug } }: { params: { slug: string } }) => {
   // Get all posts again
