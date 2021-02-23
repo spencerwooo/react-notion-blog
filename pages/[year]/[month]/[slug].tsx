@@ -1,10 +1,9 @@
-import DisqusJS from 'disqusjs'
-import 'disqusjs/dist/disqusjs.css'
+import { DiscussionEmbed } from 'disqus-react'
 import { ArrowLeftOutline, CalendarOutline, ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
 import Head from 'next/head'
 import Link from 'next/link'
 import 'prismjs/themes/prism-tomorrow.css'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { BlockMapType, NotionRenderer } from 'react-notion'
 import 'react-notion/src/styles.css'
 import { getAllPosts, Post } from '../..'
@@ -51,18 +50,6 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType; pagination: Pagination }>
   pagination: Pagination
 }) => {
   if (!post) return null
-
-  useEffect(() => {
-    // eslint-disable-next-line no-unused-vars
-    const disqusjs = new DisqusJS({
-      shortname: 'spencerwoo',
-      siteName: "Spencer's Blog",
-      identifier: formatSlug(post.date, post.slug),
-      apikey: 'F6hHeFWtfmWW5n4RVf4hjgazRj8y0ERfQdeQPIGKr79yajw6glnmTqrgYHTC8XaS',
-      admin: 'spencerwoo',
-      adminLabel: 'Admin'
-    })
-  }, [])
 
   return (
     <>
@@ -120,7 +107,7 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType; pagination: Pagination }>
             </div>
 
             <div className="mt-8 pt-2 border-t-2">
-              <div id="disqus_thread" />
+              <DiscussionEmbed shortname="spencerwoo" config={{ identifier: formatSlug(post.date, post.slug) }} />
             </div>
           </div>
         </div>
