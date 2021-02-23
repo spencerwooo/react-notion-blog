@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.cnpmjs.org/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.notion,
+.notion-text {
+  @apply leading-7;
+  @apply font-sans;
+}
