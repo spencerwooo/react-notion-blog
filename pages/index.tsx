@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { formatSlug } from './util'
+import { formatSlug } from '../utls/slugFormat'
 import Image from 'next/image'
 import Footer from '../components/Footer'
 import { CalendarOutline, HashtagOutline } from 'heroicons-react'
