@@ -18,14 +18,15 @@ export interface Pagination {
 export const getStaticProps = async ({ params: { slug } }: { params: { slug: string } }) => {
   // Get all posts again
   const posts = await getAllPosts()
+  const publishedPosts = posts.filter(p => p.published)
 
   // Find the current blogpost by slug
-  const postIndex = posts.findIndex(t => t.slug === slug)
-  const post = posts[postIndex]
+  const postIndex = publishedPosts.findIndex(t => t.slug === slug)
+  const post = publishedPosts[postIndex]
 
   const pagination: Pagination = {
-    prev: postIndex - 1 >= 0 ? posts[postIndex - 1] : null,
-    next: postIndex + 1 < posts.length ? posts[postIndex + 1] : null
+    prev: postIndex - 1 >= 0 ? publishedPosts[postIndex - 1] : null,
+    next: postIndex + 1 < publishedPosts.length ? publishedPosts[postIndex + 1] : null
   }
 
   const blocks = await fetch(`https://notion-api.splitbee.io/v1/page/${post!.id}`).then(res => res.json())
