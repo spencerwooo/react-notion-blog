@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    {
+      "source": "/posts/index.xml",
+      "destination": "/feed"
+    }
+  ]
+}

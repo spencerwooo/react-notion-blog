@@ -45,6 +45,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
     <>
       <Head>
         <title>Spencer&apos;s Blog</title>
+        <script async src="https://analytics.spencerwoo.com/sb.js" data-token="P4NLW57KW58Z"></script>
       </Head>
       <div className="min-h-screen flex flex-col">
         <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
@@ -76,17 +77,14 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
                   <span>Friends</span>
                 </div>
               </a>
-              <a
-                href="https://spencerwoo.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-1 px-2 bg-indigo-50 hover:text-indigo-600 rounded"
-              >
-                <div className="flex items-center space-x-2">
-                  <RssOutline size={16} />
-                  <span>RSS</span>
-                </div>
-              </a>
+              <Link href="/feed">
+                <a className="py-1 px-2 bg-indigo-50 hover:text-indigo-600 rounded">
+                  <div className="flex items-center space-x-2">
+                    <RssOutline size={16} />
+                    <span>RSS</span>
+                  </div>
+                </a>
+              </Link>
             </div>
 
             <div className="mt-12 leading-loose flex flex-col space-y-4 -mx-4">

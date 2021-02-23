@@ -54,6 +54,7 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType; pagination: Pagination }>
     <>
       <Head>
         <title>{post.name} - Spencer&apos;s Blog</title>
+        <script async src="https://analytics.spencerwoo.com/sb.js" data-token="P4NLW57KW58Z"></script>
       </Head>
       <div className="min-h-screen flex flex-col">
         <div className="container mx-auto px-6 justify-center flex-grow max-w-4xl">
