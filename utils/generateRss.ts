@@ -21,13 +21,15 @@ export const generateRss = (posts: Post[]) => {
   })
 
   posts.forEach(post => {
-    feed.addItem({
-      title: post.name,
-      id: `${domain}${formatSlug(post.date, post.slug)}`,
-      link: `${domain}${formatSlug(post.date, post.slug)}`,
-      description: post.preview,
-      date: new Date(post.date)
-    })
+    if (post.published) {
+      feed.addItem({
+        title: post.name,
+        id: `${domain}${formatSlug(post.date, post.slug)}`,
+        link: `${domain}${formatSlug(post.date, post.slug)}`,
+        description: post.preview,
+        date: new Date(post.date)
+      })
+    }
   })
 
   return feed.rss2()
