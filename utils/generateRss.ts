@@ -2,7 +2,7 @@ import { Feed } from 'feed'
 import { Post } from '../pages/index'
 import { formatSlug } from './slugFormat'
 
-const domain = 'https://blog.spencerwoo.com/'
+const domain = 'https://blog.spencerwoo.com'
 
 export const generateRss = (posts: Post[]) => {
   const year = new Date().getFullYear()

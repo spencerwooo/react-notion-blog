@@ -8,6 +8,7 @@ import 'react-notion/src/styles.css'
 import { getAllPosts, Post } from '../..'
 import Footer from '../../../components/Footer'
 import { formatSlug } from '../../../utils/slugFormat'
+import { DiscussionEmbed } from 'disqus-react'
 
 export interface Pagination {
   prev: Post | null
@@ -103,6 +104,17 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType; pagination: Pagination }>
                   </a>
                 </Link>
               )}
+            </div>
+
+            <div className="mt-8 pt-2 border-t-2">
+              <DiscussionEmbed
+                shortname="spencerwoo"
+                config={{
+                  url: formatSlug(post.date, post.slug),
+                  identifier: formatSlug(post.date, post.slug),
+                  title: post.name
+                }}
+              />
             </div>
           </div>
         </div>
