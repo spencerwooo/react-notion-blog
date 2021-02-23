@@ -34,7 +34,8 @@ export const getStaticProps = async () => {
   return {
     props: {
       posts
-    }
+    },
+    revalidate: 1
   }
 }
 
@@ -80,12 +81,12 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
                       </div>
                       <div className="font-bold text-xl mb-1">{post.name}</div>
                       <div className="text-sm text-gray-400 mb-2">{post.preview}</div>
-                      <div className="text-sm text-gray-400 flex items-center space-x-1">
+                      <div className="text-sm text-gray-400 flex items-center space-x-2">
                         <CalendarOutline size={16} />
                         <span>{new Date(post.date).toLocaleDateString()}</span>
                         {post.author.map(author => (
                           <div key={author.id} className="flex items-center space-x-1">
-                            <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6" />
+                            <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6 rounded-full" />
                             <span>{author.fullName}</span>
                           </div>
                         ))}

@@ -21,7 +21,8 @@ export const getStaticProps = async ({ params: { slug } }: { params: { slug: str
     props: {
       blocks,
       post
-    }
+    },
+    revalidate: 1
   }
 }
 
@@ -48,12 +49,14 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType }> = ({ post, blocks }: { 
                 <CalendarOutline size={16} className="mr-2" />
                 <span>{new Date(post.date).toLocaleDateString()} · </span>
               </div>
-              {post.author.map(author => (
-                <div key={author.id} className="flex items-center space-x-1">
-                  <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6" />
-                  <span>{author.fullName}</span>
-                </div>
-              ))}
+              <div className="flex items-center space-x-2">
+                {post.author.map(author => (
+                  <div key={author.id} className="flex items-center space-x-1">
+                    <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6 rounded-full" />
+                    <span>{author.fullName}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <NotionRenderer blockMap={blocks} />
