@@ -1,7 +1,9 @@
-import { CalendarOutline, HomeOutline, RssOutline, TagOutline, UserCircleOutline } from 'heroicons-react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import { CalendarOutline, HomeOutline, RssOutline, TagOutline, UserCircleOutline } from 'heroicons-react'
+
 import Footer from '../components/Footer'
 import { formatSlug } from '../utils/slugFormat'
 
@@ -45,7 +47,6 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
     <>
       <Head>
         <title>Spencer&apos;s Blog</title>
-        <script async src="https://analytics.spencerwoo.com/sb.js" data-token="P4NLW57KW58Z"></script>
       </Head>
       <div className="min-h-screen flex flex-col">
         <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
