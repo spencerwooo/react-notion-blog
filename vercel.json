@@ -3,6 +3,10 @@
     {
       "source": "/posts/index.xml",
       "destination": "/feed"
+    },
+    {
+      "source": "/feed.xml",
+      "destination": "/feed"
     }
   ]
 }
