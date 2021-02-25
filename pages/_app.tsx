@@ -3,6 +3,10 @@ import { AppProps } from 'next/app'
 import Router from 'next/router'
 import '../styles.css'
 
+import 'react-notion-x/src/styles.css'
+import 'prismjs/themes/prism.css'
+import 'katex/dist/katex.min.css'
+
 const progress = new ProgressBar({
   size: 2,
   color: '#2563eb',

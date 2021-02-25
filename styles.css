@@ -6,7 +6,20 @@
 @tailwind utilities;
 
 .notion,
-.notion-text {
+.notion-text,
+.notion-quote,
+.notion-list,
+.notion-h-title {
   @apply leading-7;
   @apply font-sans;
+}
+.notion-bookmark {
+  @apply border-2;
+  @apply border-gray-100;
+}
+.notion-bookmark:hover {
+  @apply border-blue-400;
+}
+.notion-viewport {
+  z-index: -10;
 }

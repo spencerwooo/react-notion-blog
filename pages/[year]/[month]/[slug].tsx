@@ -2,13 +2,15 @@ import { DiscussionEmbed } from 'disqus-react'
 import { ArrowLeftOutline, CalendarOutline, ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
 import Head from 'next/head'
 import Link from 'next/link'
-import 'prismjs/themes/prism-tomorrow.css'
+import { NotionAPI } from 'notion-client'
+import { ExtendedRecordMap } from 'notion-types'
 import { FC } from 'react'
-import { BlockMapType, NotionRenderer } from 'react-notion'
-import 'react-notion/src/styles.css'
+import { Code, Equation, NotionRenderer } from 'react-notion-x'
 import { getAllPosts, Post } from '../..'
 import Footer from '../../../components/Footer'
 import { formatSlug } from '../../../utils/slugFormat'
+
+const notion = new NotionAPI()
 
 export interface Pagination {
   prev: Post | null
@@ -28,11 +30,11 @@ export const getStaticProps = async ({ params: { slug } }: { params: { slug: str
     next: postIndex + 1 < posts.length ? posts[postIndex + 1] : null
   }
 
-  const blocks = await fetch(`https://notion-api.splitbee.io/v1/page/${post!.id}`).then(res => res.json())
+  const recordMap = await notion.getPage(post!.id)
 
   return {
     props: {
-      blocks,
+      recordMap,
       post,
       pagination
     },
@@ -40,13 +42,13 @@ export const getStaticProps = async ({ params: { slug } }: { params: { slug: str
   }
 }
 
-const BlogPost: FC<{ post: Post; blocks: BlockMapType; pagination: Pagination }> = ({
+const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagination }> = ({
+  recordMap,
   post,
-  blocks,
   pagination
 }: {
+  recordMap: ExtendedRecordMap
   post: Post
-  blocks: BlockMapType
   pagination: Pagination
 }) => {
   if (!post) return null
@@ -55,7 +57,6 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType; pagination: Pagination }>
     <>
       <Head>
         <title>{post.name} - Spencer&apos;s Blog</title>
-        <script async src="https://analytics.spencerwoo.com/sb.js" data-token="P4NLW57KW58Z"></script>
       </Head>
       <div className="min-h-screen flex flex-col">
         <div className="container mx-auto px-6 justify-center flex-grow max-w-4xl">
@@ -84,7 +85,7 @@ const BlogPost: FC<{ post: Post; blocks: BlockMapType; pagination: Pagination }>
             </div>
 
             <div className="overflow-hidden">
-              <NotionRenderer blockMap={blocks} />
+              <NotionRenderer recordMap={recordMap} components={{ code: Code, equation: Equation }} />
             </div>
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
