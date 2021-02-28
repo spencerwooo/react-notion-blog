@@ -71,7 +71,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
                 <a className="py-1 px-2 bg-purple-50 hover:text-purple-600 rounded">
                   <div className="flex items-center space-x-2">
                     <UserCircleOutline size={16} />
-                    <span>Friends</span>
+                    <span>Friends & Guestbook</span>
                   </div>
                 </a>
               </Link>
