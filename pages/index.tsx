@@ -67,17 +67,14 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
                   <span>Portfolio</span>
                 </div>
               </a>
-              <a
-                href="https://spencerwoo.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-1 px-2 bg-purple-50 hover:text-purple-600 rounded"
-              >
-                <div className="flex items-center space-x-2">
-                  <UserCircleOutline size={16} />
-                  <span>Friends</span>
-                </div>
-              </a>
+              <Link href="/friends">
+                <a className="py-1 px-2 bg-purple-50 hover:text-purple-600 rounded">
+                  <div className="flex items-center space-x-2">
+                    <UserCircleOutline size={16} />
+                    <span>Friends</span>
+                  </div>
+                </a>
+              </Link>
               <Link href="/feed">
                 <a className="py-1 px-2 bg-indigo-50 hover:text-indigo-600 rounded">
                   <div className="flex items-center space-x-2">
@@ -88,12 +85,12 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
               </Link>
             </div>
 
-            <div className="mt-12 leading-loose flex flex-col space-y-4 -mx-4">
+            <div className="mt-12 leading-loose flex flex-col space-y-4">
               {posts.map(
                 post =>
                   post.published && (
                     <Link key={post.id} href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
-                      <a className="p-4 hover:bg-gray-50">
+                      <a className="p-6 border-2 bg-white border-gray-100 rounded hover:bg-gray-50">
                         <div className="rounded-xl mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block">
                           <div className="flex items-center space-x-1">
                             <TagOutline size={16} /> <span>{post.tag}</span>

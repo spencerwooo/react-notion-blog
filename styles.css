@@ -23,3 +23,14 @@
 .notion-viewport {
   z-index: -10;
 }
+.notion-asset-caption {
+  @apply text-center;
+}
+/* For rendering the page header, defaulting to the first image element of the notion renderer */
+.notion-asset-wrapper:first-of-type {
+  max-width: none !important;
+  margin: -2rem -2rem 1.2rem -2rem !important;
+}
+.notion-asset-wrapper:first-of-type img {
+  @apply rounded-t;
+}
