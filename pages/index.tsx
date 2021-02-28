@@ -55,12 +55,12 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
               <Image className="rounded-full" src="/images/avatar.png" alt="avatar" width="100%" height="100%" />
             </div>
             <div className="mt-8 text-2xl font-bold">Spencer&apos;s Blog</div>
-            <div className="mt-2 flex items-center space-x-2">
+            <div className="mt-2 flex flex-wrap items-center space-x-2">
               <a
                 href="https://spencerwoo.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-1 px-2 bg-yellow-50 hover:text-yellow-600 rounded"
+                className="py-1 px-2 bg-yellow-50 hover:text-yellow-600 rounded flex-shrink-0"
               >
                 <div className="flex items-center space-x-2">
                   <HomeOutline size={16} />
@@ -68,15 +68,15 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
                 </div>
               </a>
               <Link href="/friends">
-                <a className="py-1 px-2 bg-purple-50 hover:text-purple-600 rounded">
+                <a className="py-1 px-2 bg-purple-50 hover:text-purple-600 rounded flex-shrink-0">
                   <div className="flex items-center space-x-2">
                     <UserCircleOutline size={16} />
-                    <span>Friends & Guestbook</span>
+                    <span>Friends</span>
                   </div>
                 </a>
               </Link>
               <Link href="/feed">
-                <a className="py-1 px-2 bg-indigo-50 hover:text-indigo-600 rounded">
+                <a className="py-1 px-2 bg-indigo-50 hover:text-indigo-600 rounded flex-shrink-0">
                   <div className="flex items-center space-x-2">
                     <RssOutline size={16} />
                     <span>RSS</span>
