@@ -91,7 +91,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
                   post.published && (
                     <Link key={post.id} href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
                       <a className="p-4 sm:p-8 border-2 border-gray-100 rounded hover:bg-gray-50">
-                        <div className="rounded-xl mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block">
+                        <div className="rounded mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block">
                           <div className="flex items-center space-x-1">
                             <TagOutline size={16} /> <span>{post.tag}</span>
                           </div>

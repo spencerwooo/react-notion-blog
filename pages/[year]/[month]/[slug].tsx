@@ -1,5 +1,5 @@
 import { DiscussionEmbed } from 'disqus-react'
-import { ArrowLeftOutline, CalendarOutline, ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
+import { ArrowLeftOutline, CalendarOutline, ChevronLeftOutline, ChevronRightOutline, TagOutline } from 'heroicons-react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { NotionAPI } from 'notion-client'
@@ -59,7 +59,7 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
         <title>{post.name} - Spencer&apos;s Blog</title>
       </Head>
       <div className="min-h-screen flex flex-col">
-        <div className="container mx-auto px-4 justify-center flex-grow max-w-4xl">
+        <div className="container mx-auto px-4 justify-center flex-grow max-w-3xl">
           <nav className="mt-4 inline-block">
             <Link href="/">
               <a className="flex items-center -ml-2 p-2 rounded lg:hover:bg-gray-100">
@@ -69,22 +69,26 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
             </Link>
           </nav>
 
-          <div className="my-16 mx-auto max-w-3xl">
-            <div className="mb-12 text-center">
-              <div className="text-3xl font-bold mb-3">{post.name}</div>
-              <div className="text-sm text-gray-400 flex flex-nowrap justify-center items-center space-x-2 overflow-hidden">
-                <CalendarOutline size={16} className="flex-shrink-0" />
-                <span className="flex-shrink-0">{new Date(post.date).toLocaleDateString()} · </span>
-                {post.author.map(author => (
-                  <div key={author.id} className="flex items-center space-x-1 flex-shrink-0">
-                    <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6 rounded-full" />
-                    <span className="hidden md:block">{author.fullName}</span>
+          <div className="my-16">
+            <div className="overflow-hidden py-2 sm:p-8 border-2 border-gray-100 rounded">
+              <div className="mb-12 mt-4">
+                <div className="inline-block text-blue-800 bg-blue-100 px-2 py-1 rounded">
+                  <div className="flex items-center space-x-1">
+                    <TagOutline size={16} /> <span>{post.tag}</span>
                   </div>
-                ))}
+                </div>
+                <div className="text-3xl font-bold my-3">{post.name}</div>
+                <div className="text-sm text-gray-400 flex flex-nowrap items-center space-x-2 overflow-hidden">
+                  <CalendarOutline size={16} className="flex-shrink-0" />
+                  <span className="flex-shrink-0">{new Date(post.date).toLocaleDateString()} · </span>
+                  {post.author.map(author => (
+                    <div key={author.id} className="flex items-center space-x-1 flex-shrink-0">
+                      <img src={author.profilePhoto} alt="profile photo" className="w-6 h-6 rounded-full" />
+                      <span className="hidden md:block">{author.fullName}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div className="overflow-hidden px-1 sm:px-8 border-2 border-gray-100 rounded">
               <NotionRenderer recordMap={recordMap} components={{ code: Code, equation: Equation }} />
             </div>
 

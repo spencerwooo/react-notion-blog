@@ -76,7 +76,7 @@ const Friends = () => {
         <title>Friends & Guestbook - Spencer&apos;s Blog</title>
       </Head>
       <div className="min-h-screen flex flex-col">
-        <div className="container mx-auto px-6 justify-center flex-grow max-w-4xl">
+        <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
           <nav className="mt-4 inline-block">
             <Link href="/">
               <a className="flex items-center -ml-2 p-2 rounded lg:hover:bg-gray-100">
@@ -86,7 +86,7 @@ const Friends = () => {
             </Link>
           </nav>
 
-          <div className="my-16 mx-auto max-w-3xl">
+          <div className="my-16">
             <div className="mb-12 text-center text-3xl font-bold">Friends & Guestbook</div>
 
             <div className="flex justify-center items-center flex-wrap space-x-3">
