@@ -71,7 +71,7 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
 
           <div className="my-16">
             <div className="overflow-hidden py-2 sm:p-8 border-2 border-gray-100 rounded">
-              <div className="mb-12 mt-4">
+              <div className="mb-12 mt-4 px-3">
                 <div className="inline-block text-blue-800 bg-blue-100 px-2 py-1 rounded">
                   <div className="flex items-center space-x-1">
                     <TagOutline size={16} /> <span>{post.tag}</span>
