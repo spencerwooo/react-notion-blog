@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import PostCard from '../components/PostCard'
@@ -54,6 +55,13 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
               <Image className="rounded-full" src="/images/avatar.png" alt="avatar" width="100%" height="100%" />
             </div>
             <div className="mt-8 text-2xl font-bold">Spencer&apos;s Blog</div>
+            <div className="mt-2 text-gray-400">
+              Check out{' '}
+              <Link href="/friends">
+                <a className="text-purple-400 hover:bg-purple-100 p-1 rounded">Friends & Guestbook</a>
+              </Link>{' '}
+              if you want to drop by and say hello!
+            </div>
 
             <div className="mt-12 leading-loose flex flex-col space-y-4">
               {posts.map(post => post.published && <PostCard key={post.id} post={post} />)}

@@ -100,6 +100,13 @@ const Friends = () => {
               ))}
             </div>
 
+            <div className="text-center text-gray-400 mt-4">
+              <a className="p-1 rounded text-purple-400 hover:bg-purple-50" href="mailto:spencer.wushangbo@gmail.com">
+                Email me
+              </a>{' '}
+              if you want to get in touch!
+            </div>
+
             <div className="mt-8">
               <DiscussionEmbed shortname="spencerwoo" config={{ identifier: 'spencer-blog-guestbook' }} />
             </div>
