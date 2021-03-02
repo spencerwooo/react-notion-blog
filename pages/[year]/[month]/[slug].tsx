@@ -4,7 +4,7 @@ import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap } from 'notion-types'
 import { FC } from 'react'
 import { Code, Equation, NotionRenderer } from 'react-notion-x'
-import { getAllPosts, Post } from '../..'
+import { getAllPosts, getPostViews, Post, PostView } from '../..'
 import Footer from '../../../components/Footer'
 import Navbar from '../../../components/Navbar'
 import Pagination, { PaginationType } from '../../../components/Pagination'
@@ -15,7 +15,16 @@ const notion = new NotionAPI()
 
 export const getStaticProps = async ({ params: { slug } }: { params: { slug: string } }) => {
   // Get all posts again
+  const postViews = new Map<string, number>()
+  const postViewList = await getPostViews()
+  postViewList.forEach((v: PostView) => {
+    postViews.set(v.key, v.value)
+  })
+
   const posts = (await getAllPosts()).filter(p => p.published)
+  posts.forEach(p => {
+    p.views = postViews.get(formatSlug(p.date, p.slug))!
+  })
 
   // Find the current blogpost by slug
   const postIndex = posts.findIndex(t => t.slug === slug)

@@ -1,4 +1,4 @@
-import { CalendarOutline, TagOutline } from 'heroicons-react'
+import { CalendarOutline, EyeOutline, TagOutline } from 'heroicons-react'
 import { Post } from '../pages'
 
 const PostTitle = ({ post }: { post: Post }) => {
@@ -13,9 +13,17 @@ const PostTitle = ({ post }: { post: Post }) => {
       <div className="text-3xl font-bold my-3">{post.name}</div>
 
       <div className="text-sm text-gray-400 flex flex-nowrap items-center space-x-2 overflow-hidden">
-        <CalendarOutline size={16} className="flex-shrink-0" />
+        <div className="flex items-center space-x-1">
+          <CalendarOutline size={16} />
+          <span>{new Date(post.date).toLocaleDateString()}</span>
+        </div>
+        <span>·</span>
 
-        <span className="flex-shrink-0">{new Date(post.date).toLocaleDateString()} · </span>
+        <div className="flex items-center space-x-1">
+          <EyeOutline size={16} />
+          <span>{post.views}</span>
+        </div>
+        <span>·</span>
 
         {post.author.map(author => (
           <div key={author.id} className="flex items-center space-x-1 flex-shrink-0">
