@@ -47,7 +47,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
         <title>Spencer&apos;s Blog</title>
       </Head>
       <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
+        <div className="container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl">
           <Navbar />
 
           <div className="my-16">

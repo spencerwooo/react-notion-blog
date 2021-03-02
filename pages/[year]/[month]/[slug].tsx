@@ -55,11 +55,11 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
         <title>{post.name} - Spencer&apos;s Blog</title>
       </Head>
       <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
+        <div className="container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl">
           <Navbar />
 
           <div className="my-16">
-            <div className="overflow-hidden py-2 sm:p-8 border-2 bg-white border-gray-100 rounded">
+            <div className="overflow-hidden py-2 sm:p-8 sm:border-2 sm:bg-white sm:border-gray-100 rounded">
               <PostTitle post={post} />
               <NotionRenderer recordMap={recordMap} components={{ code: Code, equation: Equation }} />
             </div>
