@@ -1,5 +1,5 @@
 import { DiscussionEmbed } from 'disqus-react'
-import { ArrowLeftOutline, CalendarOutline, ChevronLeftOutline, ChevronRightOutline, TagOutline } from 'heroicons-react'
+import { CalendarOutline, ChevronLeftOutline, ChevronRightOutline, TagOutline } from 'heroicons-react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { NotionAPI } from 'notion-client'
@@ -61,14 +61,6 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
       </Head>
       <div className="min-h-screen flex flex-col bg-gray-50">
         <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
-          {/* <nav className="mt-4 inline-block">
-            <Link href="/">
-              <a className="flex items-center -ml-2 p-2 rounded lg:hover:bg-gray-100">
-                <ArrowLeftOutline size={20} className="mr-4" />
-                <span>Home</span>
-              </a>
-            </Link>
-          </nav> */}
           <Navbar />
 
           <div className="my-16">
@@ -97,7 +89,7 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
             <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
               {pagination.prev && (
                 <Link href="/[year]/[month]/[slug]" as={formatSlug(pagination.prev.date, pagination.prev.slug)}>
-                  <a className="p-3 border-2 border-gray-100 hover:bg-gray-50 flex items-center justify-between space-x-2">
+                  <a className="p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2">
                     <ChevronLeftOutline size={20} />
                     <span>{pagination.prev?.name}</span>
                   </a>
@@ -105,7 +97,7 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
               )}
               {pagination.next && (
                 <Link href="/[year]/[month]/[slug]" as={formatSlug(pagination.next.date, pagination.next.slug)}>
-                  <a className="p-3 border-2 border-gray-100 hover:bg-gray-50 flex items-center justify-between space-x-2">
+                  <a className="p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2">
                     <span>{pagination.next?.name}</span>
                     <ChevronRightOutline size={20} />
                   </a>
