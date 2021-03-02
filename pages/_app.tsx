@@ -1,11 +1,10 @@
 import ProgressBar from '@badrap/bar-of-progress'
+import 'katex/dist/katex.min.css'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
-import '../styles.css'
-
-import 'react-notion-x/src/styles.css'
 import 'prismjs/themes/prism.css'
-import 'katex/dist/katex.min.css'
+import 'react-notion-x/src/styles.css'
+import '../styles.css'
 
 const progress = new ProgressBar({
   size: 2,
