@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { CalendarOutline, HomeOutline, RssOutline, TagOutline, UserCircleOutline } from 'heroicons-react'
 
+import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { formatSlug } from '../utils/slugFormat'
 
@@ -48,49 +49,22 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
       <Head>
         <title>Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col">
-        <div className="container mx-auto px-4 justify-center flex-grow max-w-3xl">
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
+          <Navbar />
+
           <div className="my-16">
             <div className="inline-block shadow-lg rounded-full w-18 h-18">
               <Image className="rounded-full" src="/images/avatar.png" alt="avatar" width="100%" height="100%" />
             </div>
             <div className="mt-8 text-2xl font-bold">Spencer&apos;s Blog</div>
-            <div className="mt-2 flex flex-wrap items-center space-x-2">
-              <a
-                href="https://spencerwoo.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-1 px-2 bg-yellow-50 hover:text-yellow-600 rounded flex-shrink-0"
-              >
-                <div className="flex items-center space-x-2">
-                  <HomeOutline size={16} />
-                  <span>Portfolio</span>
-                </div>
-              </a>
-              <Link href="/friends">
-                <a className="py-1 px-2 bg-purple-50 hover:text-purple-600 rounded flex-shrink-0">
-                  <div className="flex items-center space-x-2">
-                    <UserCircleOutline size={16} />
-                    <span>Friends</span>
-                  </div>
-                </a>
-              </Link>
-              <Link href="/feed">
-                <a className="py-1 px-2 bg-indigo-50 hover:text-indigo-600 rounded flex-shrink-0">
-                  <div className="flex items-center space-x-2">
-                    <RssOutline size={16} />
-                    <span>RSS</span>
-                  </div>
-                </a>
-              </Link>
-            </div>
 
             <div className="mt-12 leading-loose flex flex-col space-y-4">
               {posts.map(
                 post =>
                   post.published && (
                     <Link key={post.id} href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
-                      <a className="p-4 sm:p-8 border-2 border-gray-100 rounded hover:bg-gray-50">
+                      <a className="p-4 sm:p-6 border-2 border-gray-100 bg-white rounded hover:bg-gray-50">
                         <div className="rounded mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block">
                           <div className="flex items-center space-x-1">
                             <TagOutline size={16} /> <span>{post.tag}</span>

@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 export interface Friend {
   id: string
@@ -75,16 +76,9 @@ const Friends = () => {
       <Head>
         <title>Friends & Guestbook - Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-gray-50">
         <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
-          <nav className="mt-4 inline-block">
-            <Link href="/">
-              <a className="flex items-center -ml-2 p-2 rounded lg:hover:bg-gray-100">
-                <ArrowLeftOutline size={20} className="mr-4" />
-                <span>Home</span>
-              </a>
-            </Link>
-          </nav>
+          <Navbar />
 
           <div className="my-16">
             <div className="mb-12 text-center text-3xl font-bold">Friends & Guestbook</div>

@@ -26,3 +26,23 @@
 .notion-asset-caption {
   @apply text-center;
 }
+
+.menu-enter {
+  opacity: 0;
+  transform: scale(0.9);
+  transform-origin: top right;
+}
+.menu-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 200ms, transform 200ms;
+}
+.menu-exit {
+  opacity: 1;
+}
+.menu-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transform-origin: top right;
+  transition: opacity 200ms, transform 200ms;
+}

@@ -8,6 +8,7 @@ import { FC } from 'react'
 import { Code, Equation, NotionRenderer } from 'react-notion-x'
 import { getAllPosts, Post } from '../..'
 import Footer from '../../../components/Footer'
+import Navbar from '../../../components/Navbar'
 import { formatSlug } from '../../../utils/slugFormat'
 
 const notion = new NotionAPI()
@@ -58,19 +59,20 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
       <Head>
         <title>{post.name} - Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col">
-        <div className="container mx-auto px-4 justify-center flex-grow max-w-3xl">
-          <nav className="mt-4 inline-block">
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <div className="container mx-auto px-6 justify-center flex-grow max-w-3xl">
+          {/* <nav className="mt-4 inline-block">
             <Link href="/">
               <a className="flex items-center -ml-2 p-2 rounded lg:hover:bg-gray-100">
                 <ArrowLeftOutline size={20} className="mr-4" />
                 <span>Home</span>
               </a>
             </Link>
-          </nav>
+          </nav> */}
+          <Navbar />
 
           <div className="my-16">
-            <div className="overflow-hidden py-2 sm:p-8 border-2 border-gray-100 rounded">
+            <div className="overflow-hidden py-2 sm:p-8 border-2 bg-white border-gray-100 rounded">
               <div className="mb-12 mt-4 px-3">
                 <div className="inline-block text-blue-800 bg-blue-100 px-2 py-1 rounded">
                   <div className="flex items-center space-x-1">

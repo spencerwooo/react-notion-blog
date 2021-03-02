@@ -9,7 +9,7 @@ import 'katex/dist/katex.min.css'
 
 const progress = new ProgressBar({
   size: 2,
-  color: '#2563eb',
+  color: '#9ca3af',
   className: 'bar-of-progress',
   delay: 100
 })
