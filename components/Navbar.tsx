@@ -30,7 +30,7 @@ const Navbar = () => {
   }, [])
 
   return (
-    <nav className="mt-4 flex flex-row justify-between">
+    <nav className="mt-4 -mx-2 flex flex-row justify-between">
       <Link href="/">
         <a className="flex p-2 rounded lg:hover:bg-gray-100">
           <AcademicCapOutline className="mr-4" />
