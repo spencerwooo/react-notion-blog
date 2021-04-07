@@ -1,4 +1,4 @@
-import { AcademicCapOutline, ExternalLinkOutline, RssOutline, MenuOutline } from 'heroicons-react'
+import { AcademicCapIcon, ExternalLinkIcon, RssIcon, MenuIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
@@ -32,8 +32,8 @@ const Navbar = () => {
   return (
     <nav className="mt-4 -mx-2 flex flex-row justify-between">
       <Link href="/">
-        <a className="flex p-2 rounded lg:hover:bg-gray-100">
-          <AcademicCapOutline className="mr-4" />
+        <a className="flex items-center p-2 rounded lg:hover:bg-gray-100">
+          <AcademicCapIcon className="mr-4 w-5 h-5" />
           <span>Home</span>
         </a>
       </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
         >
           Portfolio
-          <ExternalLinkOutline className="ml-2" size={20} />
+          <ExternalLinkIcon className="ml-2 w-5 h-5" />
         </a>
         <a
           className="flex items-center text-pink-700 p-2 mr-2 rounded bg-pink-50 hover:bg-pink-100"
@@ -59,7 +59,7 @@ const Navbar = () => {
           rel="noopener noreferrer"
         >
           RSS
-          <RssOutline className="ml-2" size={20} />
+          <RssIcon className="ml-2 w-5 h-5" />
         </a>
       </div>
 
@@ -71,7 +71,7 @@ const Navbar = () => {
           setShowMenu(true)
         }}
       >
-        <MenuOutline />
+        <MenuIcon />
       </button>
       <CSSTransition in={showMenu} timeout={300} classNames="menu" unmountOnExit nodeRef={menuRef}>
         <div className="absolute top-0 right-0" ref={menuRef}>
@@ -81,11 +81,11 @@ const Navbar = () => {
             </Link>
             <a className="flex items-center" href="https://spencerwoo.com" target="_blank" rel="noopener noreferrer">
               Portfolio
-              <ExternalLinkOutline className="ml-2" size={20} />
+              <ExternalLinkIcon className="ml-2 w-5 h-5" />
             </a>
             <a className="flex items-center text-pink-700" href="/feed" target="_blank" rel="noopener noreferrer">
               RSS
-              <RssOutline className="ml-2" size={20} />
+              <RssIcon className="ml-2 w-5 h-5" />
             </a>
           </div>
         </div>

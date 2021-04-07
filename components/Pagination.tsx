@@ -1,4 +1,4 @@
-import { ChevronLeftOutline, ChevronRightOutline } from 'heroicons-react'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import { Post } from '../pages'
 import { formatSlug } from '../utils/slugFormat'
@@ -14,7 +14,7 @@ const Pagination = ({ pagination }: { pagination: PaginationType }) => {
       {pagination.prev && (
         <Link href="/[year]/[month]/[slug]" as={formatSlug(pagination.prev.date, pagination.prev.slug)}>
           <a className="p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2">
-            <ChevronLeftOutline size={20} />
+            <ChevronLeftIcon className="w-5 h-5" />
             <span>{pagination.prev?.name}</span>
           </a>
         </Link>
@@ -23,7 +23,7 @@ const Pagination = ({ pagination }: { pagination: PaginationType }) => {
         <Link href="/[year]/[month]/[slug]" as={formatSlug(pagination.next.date, pagination.next.slug)}>
           <a className="p-4 border-2 border-gray-100 bg-white hover:border-gray-300 flex items-center justify-between space-x-2">
             <span>{pagination.next?.name}</span>
-            <ChevronRightOutline size={20} />
+            <ChevronRightIcon />
           </a>
         </Link>
       )}
