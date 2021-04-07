@@ -71,7 +71,7 @@ const Navbar = () => {
           setShowMenu(true)
         }}
       >
-        <MenuIcon />
+        <MenuIcon className="w-5 h-5" />
       </button>
       <CSSTransition in={showMenu} timeout={300} classNames="menu" unmountOnExit nodeRef={menuRef}>
         <div className="absolute top-0 right-0" ref={menuRef}>
