@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --write components/ pages/ utils/ *.{js,ts,json,css}"
   },
   "license": "MIT",
   "dependencies": {
