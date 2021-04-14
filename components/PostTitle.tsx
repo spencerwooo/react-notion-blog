@@ -10,7 +10,7 @@ const PostTitle = ({ post }: { post: Post }) => {
         </div>
       </div>
 
-      <div className="text-3xl font-bold my-3">{post.name}</div>
+      <div className="text-3xl font-bold my-3 dark:text-white">{post.name}</div>
 
       <div className="text-sm text-gray-400 flex flex-nowrap items-center space-x-2 overflow-hidden">
         <div className="flex items-center space-x-1">
