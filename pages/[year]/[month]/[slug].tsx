@@ -1,4 +1,5 @@
 import { DiscussionEmbed } from 'disqus-react'
+import useDarkMode from 'use-dark-mode'
 import Head from 'next/head'
 import { NotionAPI } from 'notion-client'
 import { ExtendedRecordMap } from 'notion-types'
@@ -58,19 +59,25 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
 }) => {
   if (!post) return null
 
+  const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
+
   return (
     <>
       <Head>
         <title>{post.name} - Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col bg-gray-50">
+      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl">
           <Navbar />
 
           <div className="my-16">
-            <div className="overflow-hidden py-2 sm:p-8 sm:border-2 sm:bg-white sm:border-gray-100 rounded">
+            <div className="overflow-hidden py-2 sm:p-8 sm:border-2 sm:bg-white sm:border-gray-100 rounded dark:sm:bg-gray-800 dark:text-white dark:sm:border-gray-700">
               <PostTitle post={post} />
-              <NotionRenderer recordMap={recordMap} components={{ code: Code, equation: Equation }} />
+              <NotionRenderer
+                recordMap={recordMap}
+                components={{ code: Code, equation: Equation }}
+                darkMode={darkMode.value}
+              />
             </div>
 
             <Pagination pagination={pagination} />

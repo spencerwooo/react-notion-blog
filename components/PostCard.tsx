@@ -6,8 +6,8 @@ import { formatSlug } from '../utils/slugFormat'
 const PostCard = ({ post }: { post: Post }) => {
   return (
     <Link href="/[year]/[month]/[slug]" as={formatSlug(post.date, post.slug)}>
-      <a className="p-4 sm:p-6 border-2 border-gray-100 bg-white rounded transition transform hover:-translate-y-1 hover:shadow-md">
-        <div className="rounded mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block">
+      <a className="p-4 sm:p-6 border-2 border-gray-100 bg-white rounded transition transform dark:bg-gray-800 dark:border-gray-700 dark:text-white hover:-translate-y-1 hover:shadow-md">
+        <div className="rounded mb-2 px-2 py-1 text-blue-800 bg-blue-100 text-sm inline-block dark:text-yellow-400 dark:bg-gray-700">
           <div className="flex items-center space-x-1">
             <TagIcon className="w-5 h-5" /> <span>{post.tag}</span>
           </div>

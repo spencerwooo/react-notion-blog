@@ -102,7 +102,7 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
       <Head>
         <title>Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col bg-gray-50">
+      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl">
           <Navbar />
 
@@ -110,11 +110,11 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
             <div className="inline-block shadow-lg rounded-full w-18 h-18">
               <Image className="rounded-full" src="/images/avatar.png" alt="avatar" width="100%" height="100%" />
             </div>
-            <div className="mt-8 text-2xl font-bold">Spencer&apos;s Blog</div>
+            <div className="mt-8 text-2xl font-bold dark:text-white">Spencer&apos;s Blog</div>
             <div className="mt-2 text-gray-400">
               Check out{' '}
               <Link href="/friends">
-                <a className="text-purple-400 hover:bg-purple-100 p-1 rounded">Friends & Guestbook</a>
+                <a className="text-purple-400 hover:text-purple-300 rounded">Friends & Guestbook</a>
               </Link>{' '}
               if you want to drop by and say hello!
             </div>
