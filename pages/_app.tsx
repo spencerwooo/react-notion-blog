@@ -2,7 +2,7 @@ import ProgressBar from '@badrap/bar-of-progress'
 import 'katex/dist/katex.min.css'
 import { AppProps } from 'next/app'
 import Router from 'next/router'
-import 'prismjs/themes/prism.css'
+import 'prismjs/themes/prism-okaidia.css'
 import 'react-notion-x/src/styles.css'
 import '../styles.css'
 

@@ -13,6 +13,9 @@
   @apply leading-7;
   @apply font-sans;
 }
+.notion-code {
+  @apply bg-gray-900;
+}
 .notion-bookmark {
   @apply border-2;
   @apply border-gray-100;
