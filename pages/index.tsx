@@ -29,64 +29,26 @@ export interface Post {
   views: number
 }
 
-export interface PostView {
-  key: string
-  value: number
-}
-
 export const getAllPosts = async (): Promise<Post[]> => {
   return await axios.get(`https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`).then(res => res.data)
 }
 
-export const getPostViews = async (): Promise<PostView[]> => {
-  const today = new Date()
-  const aYearBefore = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate())
-
-  // console.log(today.toISOString())
-  // console.log(aYearBefore.toISOString())
-
+export const getPostView = async (slug: string): Promise<number> => {
   return await axios
-    .post(
-      'https://api.splitbee.io/graphql',
-      {
-        query: `query getTopPages($range: TimeRangeInput!, $filter: StatsFilter) {
-        topPages(range: $range, filter: $filter) {
-          key
-          value
-          __typename
-        }
-      }`,
-        operationName: 'getTopPages',
-        variables: {
-          range: {
-            from: aYearBefore.toISOString(),
-            to: today.toISOString()
-          },
-          filter: {}
-        }
-      },
-      {
-        headers: {
-          projectId: 'blog.spencerwoo.com',
-          'content-type': 'application/json'
-        }
-      }
-    )
-    .then(res => res.data.data.topPages)
+    .get('https://api.splitbee.io/v1/blog.spencerwoo.com/pageviews', {
+      params: { page: slug },
+      headers: { 'x-api-key': process.env.SPLITBEE_API_TOKEN }
+    })
+    .then(res => res.data.count)
 }
 
 export const getStaticProps = async () => {
-  const postViews = new Map<string, number>()
-
-  const postViewList = await getPostViews()
-  postViewList.forEach((v: PostView) => {
-    postViews.set(v.key, v.value)
-  })
-
   const posts = (await getAllPosts()).filter(p => p.published)
-  posts.forEach(p => {
-    p.views = postViews.get(formatSlug(p.date, p.slug))!
-  })
+  await Promise.all(
+    posts.map(async p => {
+      p.views = await getPostView(formatSlug(p.date, p.slug))
+    })
+  )
 
   return {
     props: {
