@@ -17,15 +17,13 @@ const notion = new NotionAPI()
 export const getStaticProps = async ({ params: { slug } }: { params: { slug: string } }) => {
   // Get all posts again
   const posts = (await getAllPosts()).filter(p => p.published)
-  await Promise.all(
-    posts.map(async p => {
-      p.views = await getPostView(formatSlug(p.date, p.slug))
-    })
-  )
 
   // Find the current blogpost by slug
   const postIndex = posts.findIndex(t => t.slug === slug)
   const post = posts[postIndex]
+
+  // Get page views from current post
+  post.views = await getPostView(formatSlug(post.date, post.slug))
 
   const pagination: PaginationType = {
     prev: postIndex - 1 >= 0 ? posts[postIndex - 1] : null,
@@ -40,7 +38,7 @@ export const getStaticProps = async ({ params: { slug } }: { params: { slug: str
       post,
       pagination
     },
-    revalidate: 1
+    revalidate: 60
   }
 }
 
@@ -67,7 +65,7 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
           <Navbar />
 
           <div className="my-16">
-            <div className="overflow-hidden py-2 sm:p-8 sm:border-2 sm:bg-white sm:border-gray-100 rounded dark:sm:bg-gray-800 dark:sm:border-gray-700">
+            <div className="overflow-hidden py-2 sm:p-8 sm:border-2 sm:bg-white sm:border-gray-100 rounded sm:dark:bg-gray-800 sm:dark:border-gray-700">
               <PostTitle post={post} />
               <NotionRenderer
                 recordMap={recordMap}
