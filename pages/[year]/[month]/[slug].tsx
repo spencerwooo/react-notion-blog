@@ -65,7 +65,7 @@ const BlogPost: FC<{ recordMap: ExtendedRecordMap; post: Post; pagination: Pagin
           <Navbar />
 
           <div className="my-16">
-            <div className="overflow-hidden py-2 sm:p-8 sm:border-2 sm:bg-white sm:border-gray-100 rounded dark:sm:bg-gray-800 dark:sm:border-gray-700">
+            <div className="overflow-hidden py-2 sm:p-8 sm:border-2 sm:bg-white sm:border-gray-100 rounded sm:dark:bg-gray-800 sm:dark:border-gray-700">
               <PostTitle post={post} />
               <NotionRenderer
                 recordMap={recordMap}
