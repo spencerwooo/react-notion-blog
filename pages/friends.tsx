@@ -36,11 +36,17 @@ const Friends = () => {
       avatar: 'https://avatars0.githubusercontent.com/u/34436920?s=160',
       bgColor: '#595058'
     },
+    // {
+    //   id: '@ash0ne',
+    //   link: 'https://blog.ash0ne.com/',
+    //   avatar: 'https://avatars3.githubusercontent.com/u/28522665?s=160',
+    //   bgColor: '#9f8cd1'
+    // },
     {
-      id: '@ash0ne',
-      link: 'https://blog.ash0ne.com/',
-      avatar: 'https://avatars3.githubusercontent.com/u/28522665?s=160',
-      bgColor: '#9f8cd1'
+      id: '@ArvinZJC',
+      link: 'https://isarvin.com',
+      avatar: 'https://avatars.githubusercontent.com/u/41031053',
+      bgColor: '#4c493e'
     },
     {
       id: '@FKY',
