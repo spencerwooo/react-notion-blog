@@ -79,12 +79,14 @@ const Friends = () => {
       <Head>
         <title>Friends & Guestbook - Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl">
+      <div className="min-h-screen flex flex-col">
+        <div className="container mx-auto max-w-3xl">
           <Navbar />
+        </div>
 
-          <div className="my-16">
-            <div className="mb-12 text-center text-3xl font-bold dark:text-white">Friends & Guestbook</div>
+        <div className="container mx-auto mb-6 md:my-6 px-4 sm:px-6 justify-center flex-grow max-w-3xl bg-base-200 rounded">
+          <div className="my-8">
+            <div className="mb-12 text-center text-2xl font-bold">Friends & Guestbook</div>
 
             <div className="flex justify-center items-center flex-wrap space-x-3">
               {friends.map(f => (
@@ -106,8 +108,8 @@ const Friends = () => {
               ))}
             </div>
 
-            <div className="text-center text-gray-400 mt-4">
-              <a className="rounded text-purple-400 hover:text-purple-300" href="mailto:spencer.wushangbo@gmail.com">
+            <div className="text-center text-neutral mt-4">
+              <a className="rounded link text-primary" href="mailto:spencer.wushangbo@gmail.com">
                 Email me
               </a>{' '}
               if you want to get in touch!

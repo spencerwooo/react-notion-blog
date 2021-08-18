@@ -3,16 +3,16 @@ import { Post } from '../pages'
 
 const PostTitle = ({ post }: { post: Post }) => {
   return (
-    <div className="mb-12 mt-4 px-3">
-      <div className="inline-block text-blue-800 bg-blue-100 px-2 py-1 rounded dark:text-yellow-400 dark:bg-gray-700">
+    <div className="mb-8 mt-4 px-3">
+      <div className="badge badge-primary">
         <div className="flex items-center space-x-1">
-          <TagIcon className="w-5 h-5" /> <span>{post.tag}</span>
+          <TagIcon className="w-4 h-4" /> <span>{post.tag}</span>
         </div>
       </div>
 
-      <div className="text-3xl font-bold my-3 dark:text-white">{post.name}</div>
+      <div className="text-2xl font-bold my-3">{post.name}</div>
 
-      <div className="text-sm text-gray-400 flex flex-nowrap items-center space-x-2 overflow-hidden">
+      <div className="text-sm text-neutral flex flex-nowrap items-center space-x-2 overflow-hidden">
         <div className="flex items-center space-x-1">
           <CalendarIcon className="w-5 h-5" />
           <span>{new Date(post.date).toLocaleDateString()}</span>
