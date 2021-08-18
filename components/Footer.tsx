@@ -2,23 +2,23 @@ const Footer = () => {
   const currentYear: number = new Date().getFullYear()
 
   return (
-    <footer className="w-full p-4 text-center text-gray-400 bg-gray-800">
+    <footer className="w-full mb-8 text-center">
       <div className="container mx-auto">
         <div>
           Powered by{' '}
-          <a className="hover:text-white" href="https://nextjs.org/">
+          <a className="link" href="https://nextjs.org/">
             Next.js
           </a>
           ,{' '}
-          <a className="hover:text-white" href="https://tailwindcss.com/">
+          <a className="link" href="https://tailwindcss.com/">
             Tailwind CSS
           </a>
           ,{' '}
-          <a className="hover:text-white" href="https://notion.so">
+          <a className="link" href="https://notion.so">
             Notion
           </a>{' '}
           and{' '}
-          <a className="hover:text-white" href="https://www.typescriptlang.org/">
+          <a className="link" href="https://www.typescriptlang.org/">
             TypeScript.
           </a>
         </div>

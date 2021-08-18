@@ -12,6 +12,7 @@
     "@badrap/bar-of-progress": "^0.1.2",
     "@heroicons/react": "^1.0.0",
     "axios": "^0.21.1",
+    "daisyui": "^1.12.0",
     "disqus-react": "^1.0.11",
     "feed": "^4.2.2",
     "next": "^11.0.0",

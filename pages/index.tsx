@@ -63,19 +63,23 @@ const HomePage = ({ posts }: { posts: Post[] }) => {
       <Head>
         <title>Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 justify-center flex-grow max-w-3xl">
+      <div className="min-h-screen flex flex-col">
+        <div className="container mx-auto max-w-3xl">
           <Navbar />
+        </div>
 
-          <div className="my-16">
-            <div className="inline-block shadow-lg rounded-full w-18 h-18">
-              <img className="rounded-full" src="/images/avatar.png" alt="avatar" width="100%" height="100%" />
-            </div>
-            <div className="mt-8 text-2xl font-bold dark:text-white">Spencer&apos;s Blog</div>
-            <div className="mt-2 text-gray-400">
+        <div className="container mx-auto mb-6 md:my-6 px-4 sm:px-6 justify-center flex-grow max-w-3xl bg-base-200 rounded">
+          <div className="my-8">
+            <img
+              className="w-24 h-24 rounded-full ring ring-base-300 ring-offset-base-100 ring-offset-2"
+              src="/images/avatar.png"
+              alt="avatar"
+            />
+            <div className="mt-8 text-2xl font-bold">Spencer&apos;s Blog</div>
+            <div className="mt-2 text-neutral">
               Check out{' '}
               <Link href="/friends">
-                <a className="text-purple-400 hover:text-purple-300 rounded">Friends & Guestbook</a>
+                <a className="link text-primary">Friends & Guestbook</a>
               </Link>{' '}
               if you want to drop by and say hello!
             </div>

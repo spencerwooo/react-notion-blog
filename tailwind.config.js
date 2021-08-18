@@ -22,12 +22,12 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', '"Noto Sans SC"', ...defaultTheme.fontFamily.sans]
+        sans: ['Rubik', '"Noto Sans SC"', ...defaultTheme.fontFamily.sans]
       }
     }
   },
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [require('daisyui')]
 }
