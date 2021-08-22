@@ -42,7 +42,10 @@ export const getPostView = async (slug: string): Promise<number> => {
 }
 
 export const getStaticProps = async () => {
-  const posts = (await getAllPosts()).filter(p => p.published)
+  const unsortedPosts = (await getAllPosts()).filter(p => p.published)
+  const posts = unsortedPosts.sort((a, b) => {
+    return Date.parse(b.date) - Date.parse(a.date)
+  })
   await Promise.all(
     posts.map(async p => {
       p.views = await getPostView(formatSlug(p.date, p.slug))
