@@ -5,33 +5,19 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write components/ pages/ utils/ *.{js,ts,json,css}"
+    "format": "prettier --write pages/ *.{js,ts,json,css}"
   },
   "license": "MIT",
   "dependencies": {
-    "@badrap/bar-of-progress": "^0.1.2",
-    "@heroicons/react": "^1.0.0",
-    "axios": "^0.21.1",
-    "daisyui": "^1.12.0",
-    "disqus-react": "^1.0.11",
-    "feed": "^4.2.2",
-    "next": "^11.0.0",
-    "notion-client": "^4.8.2",
-    "notion-types": "^4.8.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-notion-x": "^4.8.3",
-    "react-transition-group": "^4.4.1",
-    "use-dark-mode": "^2.3.1"
+    "next": "^12.0.7",
+    "next-themes": "^0.0.15"
   },
   "devDependencies": {
-    "@types/node": "^14.14.37",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-transition-group": "^4.4.1",
+    "@types/node": "^17.0.4",
+    "@types/react": "^17.0.38",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^10.4.0",
     "eslint": "^7.23.0",
     "eslint-config-next": "^11.0.0",
     "eslint-config-prettier": "^8.0.0",
@@ -42,9 +28,9 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "postcss": "^8.2.9",
+    "postcss": "^8.4.5",
     "prettier": "^2.2.1",
-    "tailwindcss": "^2.1.1",
+    "tailwindcss": "^3.0.7",
     "typescript": "^4.1.5"
   }
 }

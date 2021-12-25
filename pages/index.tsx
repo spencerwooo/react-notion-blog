@@ -1,96 +1,48 @@
-import axios from 'axios'
 import Head from 'next/head'
-import Link from 'next/link'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import PostCard from '../components/PostCard'
-import { formatSlug } from '../utils/slugFormat'
+import Image from 'next/image'
 
-const NOTION_BLOG_ID = process.env.NOTION_BLOG_ID || '7021cba3b8a04865850473d4037762ad'
+import headerImage from '../public/images/pluto-coming-soon.png'
+import avatar from '../public/images/avatar.png'
 
-export interface Author {
-  id: string
-  firstName: string
-  lastName: string
-  fullName: string
-  profilePhoto: string
-}
-
-export interface Post {
-  id: string
-  name: string
-  tag: string
-  published: boolean
-  date: string
-  slug: string
-  author: Author[]
-  preview: string
-  views: number
-}
-
-export const getAllPosts = async (): Promise<Post[]> => {
-  return await axios.get(`https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`).then(res => res.data)
-}
-
-export const getPostView = async (slug: string): Promise<number> => {
-  return await axios
-    .get('https://api.splitbee.io/v1/blog.spencerwoo.com/pageviews', {
-      params: { page: slug },
-      headers: { 'x-api-key': process.env.SPLITBEE_API_TOKEN }
-    })
-    .then(res => res.data.count)
-}
-
-export const getStaticProps = async () => {
-  const posts = (await getAllPosts()).filter(p => p.published)
-  await Promise.all(
-    posts.map(async p => {
-      p.views = await getPostView(formatSlug(p.date, p.slug))
-    })
-  )
-
-  return {
-    props: {
-      posts
-    },
-    revalidate: 60
-  }
-}
-
-const HomePage = ({ posts }: { posts: Post[] }) => {
+const HomePage = () => {
   return (
     <>
       <Head>
         <title>Spencer&apos;s Blog</title>
       </Head>
-      <div className="min-h-screen flex flex-col">
-        <div className="container mx-auto max-w-3xl">
-          <Navbar />
-        </div>
-
-        <div className="container mx-auto mb-6 md:my-6 px-4 sm:px-6 justify-center flex-grow max-w-3xl bg-base-200 rounded">
-          <div className="my-8">
-            <img
-              className="w-24 h-24 rounded-full ring ring-base-300 ring-offset-base-100 ring-offset-2"
-              src="/images/avatar.png"
-              alt="avatar"
-            />
-            <div className="mt-8 text-2xl font-bold">Spencer&apos;s Blog</div>
-            <div className="mt-2 text-neutral">
-              Check out{' '}
-              <Link href="/friends">
-                <a className="link text-primary">Friends & Guestbook</a>
-              </Link>{' '}
-              if you want to drop by and say hello!
+      <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-900">
+        <div className="flex-1 flex items-center p-4">
+          <div className="rounded border p-8 bg-white dark:bg-gray-800 dark:border-gray-700 max-w-lg flex flex-col items-end">
+            <Image src={headerImage} placeholder="blur" width={600} height={426} alt="new-domain" />
+            <div className="my-8">
+              hi there, we have moved / hi ann, tha sinn air gluasad / привет мы переехали / こんにちは、引っ越しました
+              / 你好，我们搬家了 / 你好，我們搬家了 / hallo daar, we zijn verhuisd / bonjour, nous avons déménagé
             </div>
 
-            <div className="mt-12 leading-loose flex flex-col space-y-4">
-              {posts.map(post => post.published && <PostCard key={post.id} post={post} />)}
-            </div>
+            <a
+              href="https://spencerwoo.com/blog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded border hover:bg-gray-200 dark:hover:bg-gray-700 dark:border-gray-600 flex items-center space-x-2"
+            >
+              <span>go check it out</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </a>
           </div>
         </div>
 
-        <Footer />
+        <div className="flex flex-col items-center p-4">
+          <div className="w-16 h-16 border rounded-full">
+            <Image src={avatar} alt="avatar" priority placeholder="blur" className="rounded-full w-16 h-16" />
+          </div>
+          <p>spencer woo at 2021</p>
+        </div>
       </div>
     </>
   )
