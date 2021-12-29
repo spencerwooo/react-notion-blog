@@ -15,6 +15,11 @@ module.exports = {
         source: '/feed.xml',
         destination: 'https://spencerwoo.com/feed',
         permanent: false
+      },
+      {
+        source: '/feed',
+        destination: 'https://spencerwoo.com/feed',
+        permanent: false
       }
     ]
   }
