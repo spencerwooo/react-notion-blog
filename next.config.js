@@ -8,12 +8,12 @@ module.exports = {
       },
       {
         source: '/posts/index.xml',
-        destination: '/feed',
+        destination: 'https://spencerwoo.com/feed',
         permanent: false
       },
       {
         source: '/feed.xml',
-        destination: '/feed',
+        destination: 'https://spencerwoo.com/feed',
         permanent: false
       }
     ]
